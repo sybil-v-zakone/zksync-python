@@ -1,9 +1,10 @@
-from typing import Any, Dict, Optional
-from enum import Enum
 from decimal import Decimal
-from zksync_sdk.types.transactions import Token
+from enum import Enum
+from typing import Any, Dict, Optional
 
 from pydantic import BaseModel
+
+from zksync_sdk.types.transactions import Token
 
 
 def to_camel(string: str) -> str:
@@ -28,7 +29,7 @@ class NFT(Token):
     content_hash: str
     creator_address: str
     serial_id: int
-    decimals = 0
+    decimals: int = 0
 
     def decimal_amount(self, amount: int) -> Decimal:
         return Decimal(amount)
